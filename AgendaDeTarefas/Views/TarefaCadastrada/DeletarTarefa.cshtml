@@ -1,0 +1,12 @@
+﻿@model TarefaModel
+@{
+    ViewData["Title"] = "Deletar Tarefa";
+}  
+
+<div class="text-center">
+    <h1>Deseja deletar o item (@Model.titulo)</h1>
+</div>
+
+
+<a  class="btn btn-danger btn-block" asp-controller="TarefaCadastrada" asp-action="Deletar" asp-route-id="@Model.id" >Deletar</a>
+<a class="btn btn-secondary btn-block" asp-controller="TarefaCadastrada" asp-action="Index" >Voltar</a>

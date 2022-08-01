@@ -1,0 +1,70 @@
+﻿@model List<TarefaModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body>
+    <main class="container">
+        
+        <div class="text-center mt-5">
+            <a role="button" class="btn btn-primary btn-block" asp-controller="TarefaCadastrada" asp-action="NovaTarefa">Adicionar Nova Tarefa</a>
+            
+        </div>
+
+        @if(Model != null && Model.Any())
+        {
+            foreach (TarefaModel tarefa in Model)
+            {
+                <div class="card mt-5">
+            <div class="card-body">
+                
+            <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              @tarefa.data
+            </div>
+            <div class="col-sm">
+              @tarefa.titulo
+            </div>
+            <div class="col-sm">
+
+                <div class="btn-group" role="group">
+              <a role="button" class="btn btn-primary" asp-route-id="@tarefa.id" asp-controller="TarefaCadastrada" asp-action="EditarTarefa">Editar</a>
+              <a role="button" data-toggle="confirmation" class="btn btn-danger" asp-route-id="@tarefa.id" asp-controller="TarefaCadastrada" asp-action="DeletarTarefa" >Deletar</a>
+                </div>
+            </div>
+          </div>
+        </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Inicio</th>
+                            <th scope="col">Fim</th>
+                            <th scope="col">Prioridade</th>
+                            <th scope="col">Status(Finalizada?)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <th>@tarefa.titulo</th>
+                          <td>@tarefa.horaInicio</td>
+                          <td>@tarefa.horaFim</td>
+                          <td>@tarefa.prioridade</td>
+                          <td>True</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        </div>
+
+            }
+        }
+        
+    </main>
+
+
+
+</body>
