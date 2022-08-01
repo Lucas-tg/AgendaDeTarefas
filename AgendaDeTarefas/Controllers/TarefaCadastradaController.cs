@@ -59,11 +59,11 @@ namespace AgendaDeTarefas.Controllers
 
         [HttpPost]
         public IActionResult NovaTarefa(TarefaModel tarefa)
-        {
-            if(ModelState.IsValid)
-            {           
-            _trefaRepository.AdicionarTarefa(tarefa);
-            return RedirectToAction("Index");
+        {//
+            if (ModelState.IsValid)
+            {
+                _trefaRepository.AdicionarTarefa(tarefa);
+                return RedirectToAction("Index");
             }
             return View(tarefa);
         }
@@ -76,8 +76,8 @@ namespace AgendaDeTarefas.Controllers
                 _trefaRepository.Modificar(tarefa);
                 return RedirectToAction("Index");
             }
-            // return View(tarefa); // error ao Editar Tarefa
-            return View("EditarTarefa", tarefa);
+             return View(tarefa); // error ao Editar Tarefa
+            //return View("EditarTarefa", tarefa);
 
         }
     }
