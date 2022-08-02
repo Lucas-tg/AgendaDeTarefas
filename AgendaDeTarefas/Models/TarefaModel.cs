@@ -10,7 +10,9 @@ namespace AgendaDeTarefas.Models
         [Required(ErrorMessage = "{0} é obrigatório")]
         public string titulo { get; set; }
 
-        [Required(ErrorMessage = "{0} é obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [CustomValidation(typeof(ValidadarData), nameof(ValidadarData.DataNoPassado))]
+   //     [Required(ErrorMessage = "{0} é obrigatório")]
         public string data { get; set; }
 
         [Required(ErrorMessage = "{0} é obrigatório")]

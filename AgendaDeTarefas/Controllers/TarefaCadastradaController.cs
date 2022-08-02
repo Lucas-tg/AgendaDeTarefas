@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -59,11 +60,14 @@ namespace AgendaDeTarefas.Controllers
 
         [HttpPost]
         public IActionResult NovaTarefa(TarefaModel tarefa)
-        {//
+        {
             if (ModelState.IsValid)
             {
-                _trefaRepository.AdicionarTarefa(tarefa);
-                return RedirectToAction("Index");
+
+                    _trefaRepository.AdicionarTarefa(tarefa);
+                    return RedirectToAction("Index");
+
+
             }
             return View(tarefa);
         }
